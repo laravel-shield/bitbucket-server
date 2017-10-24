@@ -1,0 +1,28 @@
+{
+    "name": "laravel-shield/bitbucket",
+    "description": "A bitbucket server service for shield.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Norris Oduro Tei",
+            "email": "norrisjibril@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel-shield/shield": "^1.0"
+    },
+    "require-dev": {
+        "laravel-shield/testing": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shield\\BitBucketServer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shield\\BitBucketServer\\Test\\": "tests/"
+        }
+    }
+}
