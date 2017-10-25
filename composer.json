@@ -1,5 +1,5 @@
 {
-    "name": "laravel-shield/bitbucket",
+    "name": "laravel-shield/bitbucket-server",
     "description": "A bitbucket server service for shield.",
     "type": "library",
     "license": "MIT",
