@@ -36,14 +36,14 @@ class BitBucketServerTest extends TestCase
     public function it_can_verify_a_valid_request()
     {
         $token = 'teikoK33Y$$';
-        $this->app['config']['shield.services.bitbucketserver.token'] = $token;
+        $this->app['config']['shield.services.bitbucketserver.options.token'] = $token;
         $content = 'XXX Code Only';
         $request = $this->request($content);
         $headers = [
             'X-Hub-Signature' => hash_hmac('sha256', $content, $token),
         ];
         $request->headers->add($headers);
-        Assert::assertTrue($this->service->verify($request, collect($this->app['config']['shield.services.bitbucketserver'])));
+        Assert::assertTrue($this->service->verify($request, collect($this->app['config']['shield.services.bitbucketserver.options'])));
     }
 
     /** @test */
@@ -55,7 +55,7 @@ class BitBucketServerTest extends TestCase
             'X-Hub-Signature' => hash_hmac('sha256', $content, 'bad request'),
         ];
         $request->headers->add($headers);
-        Assert::assertFalse($this->service->verify($request, collect($this->app['config']['shield.services.bitbucketserver'])));
+        Assert::assertFalse($this->service->verify($request, collect($this->app['config']['shield.services.bitbucketserver.options'])));
     }
 
     /** @test */
